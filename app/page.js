@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'
 
 export default function Home() {
   return (
-    <div className="min-h-screen max-w-screen bg-base-100 px-6 py-12">
+    <div className="min-h-full max-w-screen bg-base-100 px-6 py-12">
       {/* Hero Section */}
       <div className="flex flex-col lg:flex-row items-center gap-12">
         {/* Left Side */}

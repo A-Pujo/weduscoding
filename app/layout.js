@@ -63,9 +63,9 @@ export default function RootLayout({ children }) {
           <div className="drawer-side">
             <label htmlFor="nav-drawer" className="drawer-overlay"></label>
             <ul className="menu p-4 w-64 h-screen bg-base-100 space-y-2">
-              <li><Link href="/">Home</Link></li>
-              <li><Link href="/product">Product</Link></li>
-              <li><Link href="/shop">Shop</Link></li>
+              <li><Link href="/" className="btn btn-ghost">Beranda</Link></li>
+              <li><Link href="/kambing" className="btn btn-ghost">Kambing</Link></li>
+              <li><Link href="/webdev" className="btn btn-ghost">Website</Link></li>
               <li><Link href="/contact">Contact</Link></li>
               <li><button className="btn btn-neutral mt-2">Get Started</button></li>
             </ul>

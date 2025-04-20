@@ -8,8 +8,13 @@ export default function Kambing() {
   useEffect(() => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
-    canvas.width = 600
-    canvas.height = 400
+    function resizeCanvas() {
+        canvas.width = window.innerWidth - 64
+        canvas.height = window.innerHeight - 64
+    }
+
+    window.addEventListener('resize', resizeCanvas)
+    resizeCanvas()
 
     const spriteSheet = new Image()
     spriteSheet.src = '/animation/sprites/bergschaf-laufanimation-m.png'
@@ -92,8 +97,8 @@ export default function Kambing() {
   }, [])
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-green-100">
-      <canvas ref={canvasRef} className="rounded-lg shadow-md border border-green-700" />
+    <div className="min-h-full flex items-center justify-center">
+      <canvas ref={canvasRef} className="rounded-lg shadow-md border border-4 border-green-700  bg-green-100" />
     </div>
   )
 }
