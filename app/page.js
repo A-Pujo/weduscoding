@@ -5,5 +5,5 @@ export default function Home() {
     <div>
       <h1>Welcome to Wedus Ngoding</h1>
     </div>
-  );
+  )
 }
