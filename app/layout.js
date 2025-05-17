@@ -1,6 +1,5 @@
 import "./globals.css"
-import { Roboto } from 'next/font/google'
-import { Roboto, Work_Sans } from 'next/font/google';
+import { Roboto, Work_Sans } from 'next/font/google'
 
 export const metadata = {
   title: "WedusCoding",
