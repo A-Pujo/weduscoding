@@ -1,76 +1,60 @@
+import Header from './components/Header'
+import Footer from './components/Footer'
 import Link from 'next/link'
-import { BsSearch } from 'react-icons/bs'
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa'
+import { FaArrowCircleDown, FaLongArrowAltRight } from "react-icons/fa"
 
 export default function Home() {
   return (
-    <div className="min-h-full max-w-screen bg-base-100 px-6 py-12">
-      {/* Hero Section */}
-      <div className="flex flex-col lg:flex-row items-center gap-12">
-        {/* Left Side */}
-        <div className="flex-1 space-y-6 text-center lg:text-left">
-          <h1 className="text-4xl font-bold leading-snug">
-            Kami <span className="text-primary">WedusNgoding</span> <br />
-            Melayani Penjualan Kambing & Pembuatan Website
-          </h1>
-          <p className="text-gray-600">
-            We believe the future of <strong>food</strong> & <strong>code</strong> is here.
-          </p>
-
-          {/* Search Input */}
-          <div className="join justify-center lg:justify-start">
-            <input
-              className="input input-bordered join-item w-64"
-              placeholder="What are you looking for?"
-            />
-            <button className="btn join-item bg-green-500 text-white">
-              <BsSearch className="mr-2" />
-              Search
-            </button>
-          </div>
-
-          {/* Avatars & Community Text */}
-          <div className="flex items-center gap-4 pt-4 justify-center lg:justify-start">
-            <div className="avatar-group -space-x-4">
-              <div className="avatar">
-                <div className="w-10 rounded-full">
-                  <img src="/image/avatar1.jpg" alt="User 1" />
-                </div>
-              </div>
-              <div className="avatar">
-                <div className="w-10 rounded-full">
-                  <img src="/image/avatar2.jpg" alt="User 2" />
-                </div>
-              </div>
-              <div className="avatar">
-                <div className="w-10 rounded-full">
-                  <img src="/image/avatar3.jpg" alt="User 3" />
-                </div>
-              </div>
-            </div>
-            <div>
-              <p className="text-sm">
-                Mari bergabung <br />
-                Kami siap melayani anda
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Side Image */}
-        <div className="flex-1 relative w-full max-w-md lg:max-w-full">
-          <div className="overflow-hidden shadow-lg rounded-lg">
-            <img
-              src="/image/leaves.jpg"
-              alt="Hero"
-              className="object-cover w-full h-72 lg:h-full"
-            />
-          </div>
-          <div className="absolute bottom-4 right-4 bg-warning px-4 py-2 rounded-full text-sm font-semibold shadow-md">
-            #1 Best Modern Farm
+    <main className="min-h-screen bg-base-300">
+      <Header />
+      <div
+        className="hero min-h-screen"
+        style={{
+          backgroundImage:
+            "url(https://images.pexels.com/photos/270408/pexels-photo-270408.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)",
+        }}
+      >
+        <div className="hero-overlay"></div>
+        <div className="hero-content text-neutral-content text-center">
+          <div className="max-w-lg">
+            <h1 className="mb-5 text-4xl md:text-5xl font-bold">/ We . Dus . Coding /</h1>
+            <p className="mb-5 text-lg md:text-xl text-right">
+              Leveraging the data and technology collaboration
+              <br /> 
+              <span className="bg-secondary">
+                <FaLongArrowAltRight className='inline text-2xl'/> for better solutions.
+              </span>
+            </p>
+            <button className="btn btn-ghost rounded-full hover:btn-secondary animate-bounce text-2xl"><FaArrowCircleDown/> </button>
           </div>
         </div>
       </div>
-    </div>
+
+      <section>
+        <div className="stats w-full shadow">
+          <div className="stat">
+            <div className="stat-figure text-primary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                className="inline-block h-8 w-8 stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                ></path>
+              </svg>
+            </div>
+            <div className="stat-title">Total Likes</div>
+            <div className="stat-value text-primary">25.6K</div>
+            <div className="stat-desc">21% more than last month</div>
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </main>
   )
 }
