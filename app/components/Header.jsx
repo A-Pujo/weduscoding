@@ -2,6 +2,8 @@
 import Link from 'next/link'
 import { FaNewspaper } from "react-icons/fa"
 import { FaChartLine } from "react-icons/fa6"
+import { CgWebsite } from "react-icons/cg"
+import { MdHome } from "react-icons/md"
 
 export default function Header() {
   return (
@@ -32,8 +34,11 @@ export default function Header() {
           </div>
           <div className="hidden flex-none lg:block">
             <ul className="menu menu-horizontal">
-              <li><a><FaNewspaper /> Blog</a></li>
-              <li><a><FaChartLine /> We.Do.Data</a></li>
+              <li><Link href={`/`}><MdHome /> Home</Link></li>
+              <li><Link href={`/portofolio`}><CgWebsite /> Webdev Portofolio</Link></li>
+              <li><Link href={`/we-do-data`}><FaChartLine /> We . Do . Data</Link></li>
+              <li><Link href={`/blog`}><FaNewspaper /> Blog</Link></li>
+              <li><Link href={`/contact`} className='btn btn-sm btn-secondary'>Contact Us</Link></li>
             </ul>
           </div>
         </div>
@@ -42,8 +47,11 @@ export default function Header() {
       <div className="drawer-side z-999">
         <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
         <ul className="menu bg-base-200 min-h-full w-80 p-4">
-          <li><a><FaNewspaper /> Blog</a></li>
-          <li><a><FaChartLine /> We.Do.Data</a></li>
+          <li><Link href={`/`}><MdHome /> Home</Link></li>
+          <li><Link href={`/portofolio`}><CgWebsite /> Webdev Portofolio</Link></li>
+          <li><Link href={`/we-do-data`}><FaChartLine /> We . Do . Data</Link></li>
+          <li><Link href={`/blog`}><FaNewspaper /> Blog</Link></li>
+          <li><Link href={`/contact`} className='btn btn-sm btn-secondary'>Contact Us</Link></li>
         </ul>
       </div>
     </div>
