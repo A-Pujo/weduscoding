@@ -1,5 +1,6 @@
 import "./globals.css"
 import { Roboto, Work_Sans } from 'next/font/google'
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata = {
   title: "WedusCoding",
@@ -27,6 +28,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
       </body>
+      <Analytics/>
     </html>
   )
 }
