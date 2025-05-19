@@ -30,7 +30,7 @@ export default function Header() {
             </label>
           </div>
           <div className="mx-2 flex-1 px-2">
-            <img src="/image/Logo Putih Web.png" className='w-32' />
+            <img src="/image/Logo-Putih-Web.png" className='w-32' />
           </div>
           <div className="hidden flex-none lg:block">
             <ul className="menu menu-horizontal">

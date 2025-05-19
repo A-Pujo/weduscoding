@@ -35,8 +35,8 @@ export default function Home() {
       </div>
 
       {/* Info */}
-      <div className='w-full'>
-        <div className='grid grid-cols-1 md:grid-cols-3 max-w-4xl justify-self-center py-0 md:py-16'>
+      <div className='w-full flex justify-center'>
+        <div className='grid grid-cols-1 md:grid-cols-3 max-w-4xl py-0 md:py-16'>
           <div className='col-span-2 justify-center content-center p-10 md:p-0'>
             <p>
               Belajar, berkembang, dan menyediakan solusi terbaik berdasarkan 
