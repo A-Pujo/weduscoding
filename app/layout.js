@@ -1,6 +1,7 @@
 import "./globals.css"
 import { Roboto, Work_Sans } from 'next/font/google'
 import { Analytics } from "@vercel/analytics/next"
+import { ReCaptchaProvider } from "next-recaptcha-v3"
 
 export const metadata = {
   title: "WedusCoding",
@@ -21,6 +22,7 @@ const workSans = Work_Sans({
 
 export default function RootLayout({ children }) {
   return (
+    <ReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}>
     <html lang="en" className={`${roboto.variable} ${workSans.variable}`}>
       <body className={`antialiased`}>
         {/* Page content goes here */}
@@ -30,5 +32,6 @@ export default function RootLayout({ children }) {
       </body>
       <Analytics/>
     </html>
+    </ReCaptchaProvider>
   )
 }

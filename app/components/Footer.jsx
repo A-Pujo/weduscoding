@@ -8,6 +8,11 @@ export default function Footer() {
             <div>
               <p>Made with passion by <a href="https://a-pujo.web.app/" className="text-primary" target="_blank">Pujo</a></p>
               <p>© 2025 Wedus Coding. All rights reserved.</p>
+              <p className='text-gray-600'>
+                This site is protected by reCAPTCHA and the Google &nbsp;
+                <a href="https://policies.google.com/privacy">Privacy Policy</a> and &nbsp;
+                <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+              </p>
             </div>
             <div>
               <h2>Follow for more!</h2>

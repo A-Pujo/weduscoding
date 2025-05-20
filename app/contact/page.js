@@ -1,26 +1,81 @@
 'use client'
-import Footer from "../components/Footer"
-import Header from "../components/Header"
-import { IoIosSend, IoMdMail } from "react-icons/io"
-import { FaInstagram } from "react-icons/fa6"
-import Link from "next/link"
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import { IoIosSend, IoMdMail } from 'react-icons/io'
+import { FaInstagram } from 'react-icons/fa6'
+import Link from 'next/link'
 import { useState } from 'react'
-import { Bounce, toast, ToastContainer } from "react-toastify"
+import { Bounce, toast, ToastContainer } from 'react-toastify'
+import { supabase } from '../utils/supabaseClient'
+import { useReCaptcha } from "next-recaptcha-v3"
 
 export default function ContactPage () {
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [service, setService] = useState('Data Analisis')
+    const [message, setMessage] = useState('')
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const { executeRecaptcha } = useReCaptcha()
+
     const handleSubmit = async (e) => {
         e.preventDefault()
-        toast.success('Terima kasih!', {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            transition: Bounce,
-        });            
+        setIsSubmitting(true)
+
+        if (!executeRecaptcha) {
+            console.error('reCAPTCHA not loaded');
+            toast.error('Gagal memverifikasi. Silakan coba lagi.', {
+              position: 'bottom-right',
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: false,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: 'dark',
+              transition: Bounce,
+            });
+            setIsSubmitting(false)
+            return
+        }
+
+        const token = await executeRecaptcha('contactFormSubmit')
+
+        const { data, error } = await supabase.from('contact_submissions').insert([
+            { name, email, service, message }
+        ])
+
+        setIsSubmitting(false)
+
+        if (error) {
+            console.error('Error submitting contact form:', error)
+            toast.error('Gagal mengirim pesan. Silakan coba lagi.', {
+                position: 'bottom-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
+                transition: Bounce,
+            })
+        } else {
+            console.log('Contact form data saved:', data)
+            toast.success('Terima kasih! Pesan Anda telah terkirim.', {
+                position: 'bottom-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
+                transition: Bounce,
+            })
+            setName('')
+            setService('Data Analisis')
+            setMessage('')
+        }
     }
 
     return(
@@ -36,20 +91,22 @@ export default function ContactPage () {
                         <form onSubmit={handleSubmit}>
                             <fieldset className="fieldset bg-base-100 border-base-300 rounded-box w-full border p-4">
                                 <legend className="fieldset-legend">Hubungi Kami</legend>
-                                <input type="text" className="input w-full" placeholder="Anderon Coding" />
+                                <input type="text" className="input w-full" placeholder="Anderon Coding" required value={name} onChange={(e) => setName(e.target.value)} />
                                 <p className="label mb-4">Nama</p>
 
+                                <input type="email" className="input w-full" placeholder="anderon@mail.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                                <p className="label mb-4">email</p>
 
-                                <select className="select w-full">
+                                <select className="select w-full" value={service} onChange={(e) => setService(e.target.value)}>
                                     <option value={`Data Analisis`}>Data Analisis</option>
                                     <option value={`Pengembangan Website`}>Pengembangan Website</option>
                                 </select>
                                 <p className="label mb-4">Layanan</p>
 
-                                <textarea className="textarea w-full" placeholder="Pesan"></textarea>
+                                <textarea className="textarea w-full" placeholder="Pesan" value={message} onChange={(e) => setMessage(e.target.value)} required></textarea>
                                 <p className="label mb-4">Pesan</p>
                                 
-                                <button className="btn btn-sm btn-primary w-full">Kirim <IoIosSend/></button>
+                                <button className={`btn btn-sm btn-primary w-full`} disabled={isSubmitting}>Kirim {isSubmitting ? (<span className="loading loading-spinner loading-xs"></span>) : <IoIosSend/>}</button>
                             </fieldset>
                         </form>
                     </div>

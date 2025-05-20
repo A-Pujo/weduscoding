@@ -30,12 +30,12 @@ export default function Header() {
             </label>
           </div>
           <div className="mx-2 flex-1 px-2">
-            <img src="/image/Logo-Putih-Web.png" className='w-32' />
+            <img src="/assets/image/Logo-Putih-Web.png" className='w-32' />
           </div>
           <div className="hidden flex-none lg:block">
             <ul className="menu menu-horizontal">
               <li><Link href={`/`}><MdHome /> Home</Link></li>
-              <li><Link href={`/portofolio`}><CgWebsite /> Webdev Portofolio</Link></li>
+              <li><Link href={`/portofolio`}><CgWebsite /> Portofolio</Link></li>
               <li><Link href={`/we-do-data`}><FaChartLine /> We . Do . Data</Link></li>
               <li><Link href={`/blog`}><FaNewspaper /> Blog</Link></li>
               <li><Link href={`/contact`} className='btn btn-sm btn-secondary'>Contact Us</Link></li>
@@ -48,7 +48,7 @@ export default function Header() {
         <label htmlFor="my-drawer-3" aria-label="close sidebar" className="drawer-overlay"></label>
         <ul className="menu bg-base-200 min-h-full w-80 p-4">
           <li><Link href={`/`}><MdHome /> Home</Link></li>
-          <li><Link href={`/portofolio`}><CgWebsite /> Webdev Portofolio</Link></li>
+          <li><Link href={`/portofolio`}><CgWebsite /> Portofolio</Link></li>
           <li><Link href={`/we-do-data`}><FaChartLine /> We . Do . Data</Link></li>
           <li><Link href={`/blog`}><FaNewspaper /> Blog</Link></li>
           <li><Link href={`/contact`} className='btn btn-sm btn-secondary'>Contact Us</Link></li>
