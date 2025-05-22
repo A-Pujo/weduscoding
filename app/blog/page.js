@@ -38,7 +38,7 @@ export default function BlogPage () {
     return(
         <main className="min-h-screen bg-base-300">
             <Header />
-            <div className="min-h-screen py-24 px-12 md:px-24 md:py-24">                
+            <div className="min-h-screen py-24 px-6 md:px-24 md:py-24">                
                 <div className="flex flex-row my-6">
                     <h1 className="text-8xl font-bold">B</h1>
                     <div className="flex-col content-center tracking-widest bg-secondary">

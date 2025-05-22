@@ -82,7 +82,7 @@ export default function BlogPostPage({ params }) {
         return (
             <main className="min-h-screen bg-base-300">
                 <Header />
-                <div className="min-h-screen py-24 px-12 md:px-24 md:py-24 text-center">
+                <div className="min-h-screen py-24 px-6 md:px-24 md:py-24 text-center">
                     <h1 className="text-4xl font-bold text-gray-500 mb-4">Postingan Tidak Ditemukan</h1>
                     <p>Maaf, postingan yang Anda cari tidak ada.</p>
                     <Link href="/blog" className="btn btn-primary mt-8">
@@ -97,8 +97,8 @@ export default function BlogPostPage({ params }) {
     return (
         <main className="min-h-screen bg-base-300">
             <Header />
-            <div className="min-h-screen py-24 px-12 md:px-24 md:py-24">
-                <article className="bg-base-100 p-8 rounded-lg shadow-xl max-w-4xl mx-auto">
+            <div className="min-h-screen py-24 px-6 md:px-24 md:py-24">
+                <article className="bg-base-100 p-8 rounded-lg shadow-xl mx-auto">
                     <nav className="text-sm breadcrumbs mb-6 text-gray-600">
                         <ul>
                             <li><Link href="/">Home</Link></li>

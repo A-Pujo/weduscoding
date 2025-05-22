@@ -5,7 +5,7 @@ function ProjectCard({ project }) {
   return (
     <div className="card bg-base-100 shadow-xl">
       {project.image && (
-        <figure className="h-48 md:h-auto">
+        <figure>
           <img
             src={project.image}
             alt={project.title}

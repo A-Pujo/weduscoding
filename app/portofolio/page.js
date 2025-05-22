@@ -37,7 +37,7 @@ export default function PortofolioPage () {
     return(
         <main className="min-h-screen bg-base-300">
             <Header />
-            <div className="min-h-screen py-24 px-12 md:px-24 md:py-24">                
+            <div className="min-h-screen py-24 px-4 md:px-24 md:py-24">                
                 <div className="my-6">
                     <div
                     className="hero relative"
